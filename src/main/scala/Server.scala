@@ -1,20 +1,26 @@
+import cats.data.Kleisli
 import cats.effect._
 import com.comcast.ip4s._
-import org.http4s.HttpRoutes
-import org.http4s.dsl.io._
-import org.http4s.implicits._
 import org.http4s.ember.server._
+import org.http4s.implicits._
+import org.http4s.{Request, Response, server}
 
 object Server extends IOApp {
 
-  def run(args: List[String]): IO[ExitCode] =
+  // Add all types of api routes services here
+  val httpApp: Kleisli[IO, Request[IO], Response[IO]] = server.Router(
+    "/" -> Routes.helloWorldService
+  ).orNotFound
+
+  def run(args: List[String]): IO[ExitCode] = {
     EmberServerBuilder
       .default[IO]
       .withHost(ipv4"0.0.0.0")
-      .withPort(port"8080")
-      .withHttpApp(Routes.helloWorldService.orNotFound)
+      .withPort(port"8081")
+      .withHttpApp(httpApp)
       .build
       .use(_ => IO.never)
       .as(ExitCode.Success)
+  }
 
 }
