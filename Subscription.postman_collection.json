@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "a702d32f-4534-44c9-9e82-0eb65a8cc7a4",
+		"name": "Subscription",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8323999"
+	},
+	"item": [
+		{
+			"name": "localhost:8081/channels",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n    \"channelId\": 4,\n    \"channelName\": \"zee tv\",\n    \"channelCost\": 2.0,\n    \"channelLanguage\": \"hindi\"\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/channels",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"channels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/channels",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8081/channels",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"channels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/package",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/package/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"package",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostPackage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pkgName\": \"basic_package2\",\n    \"packageId\": 2,\n    \"channelIds\": [1,2]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/package",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"package"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllPackags",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/packages",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"packages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/plans?plantype=Monthly",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/plans?plantype=Monthly",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"plans"
+					],
+					"query": [
+						{
+							"key": "plantype",
+							"value": "Monthly"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/plan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"planId\": 2,\n    \"packageId\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/plan",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"plan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/plan/2?plantype=Monthly",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/plan/2?plantype=Monthly",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"plan",
+						"2"
+					],
+					"query": [
+						{
+							"key": "plantype",
+							"value": "Monthly"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/subscribe?userid=9949e207-52e9-4d62-a52a-59fc72ac7cc3&plantype=Monthly",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"subscriptionId\":1,\n    \"planID\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/subscribe?userid=9949e207-52e9-4d62-a52a-59fc72ac7cc3&plantype=Monthly",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subscribe"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "9949e207-52e9-4d62-a52a-59fc72ac7cc3"
+						},
+						{
+							"key": "plantype",
+							"value": "Monthly"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/subscription?userid=9949e207-52e9-4d62-a52a-59fc72ac7cc3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/subscription?userid=9949e207-52e9-4d62-a52a-59fc72ac7cc3",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subscription"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "9949e207-52e9-4d62-a52a-59fc72ac7cc3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
